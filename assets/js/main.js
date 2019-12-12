@@ -4,7 +4,7 @@ import {ContentPage} from './content.js'
 const routerConfig = {
   'login': {
     data: { route: 'login' },
-    url: 'login',
+    url: '',
     component: LoginPage,
   },
   'content': {
@@ -57,6 +57,7 @@ window.dispatchEvent(new CustomEvent('changeRoute', { detail: { route: 'login' }
 
 
 
+/*
 class Login extends HTMLElement {
   constructor() {
     super();
@@ -71,3 +72,4 @@ class Login extends HTMLElement {
     this.render()
   }
 }
+*/

@@ -142,8 +142,10 @@ const login = `
         <h3 class="login__main-signin">Sign in</h3>
         <form class="login__main-form" method="post">
           <input id="login" class="login__main-form-input" type="text" name="login" placeholder="Login">
-          <input id="pass" class="login__main-form-input" type="password" name="password" placeholder="Password"><a type="submit" class="login__main-form-submit">Submit</a>
-          <span id="error_message"></span>
+          <input id="pass" class="login__main-form-input" type="password" name="password" placeholder="Password">
+          <p id="error_message">Invalid login or password. Please enter a correct data.</p>
+          <a type="submit" class="login__main-form-submit">Submit</a>
+          
         </form>
       </div>
     </div>
@@ -172,24 +174,47 @@ export class LoginPage extends LoginComponent {
     return login;
   }
 
+  authorizationByEnter(e) {
+    if (e.keyCode === 13) {
+      return this.handleAuthorization(e);
+    }
+  }
+
   handleAuthorization(e) {
     e.preventDefault();
 
     let login = document.getElementById('login').value.trim();
     let pass = document.getElementById('pass').value.trim();
+    const errorMessage = document.getElementById('error_message');
 
     if (login === 'Mirror' && pass === '123321') {
       window.dispatchEvent(new CustomEvent('changeRoute',
         { detail: { route: 'content' } }));
+
+    } else if ((!login && pass) || (login && !pass)) {
+      login ? errorMessage.innerText = 'Please enter your password.'
+        : errorMessage.innerText = 'Please enter your login.';
+
+      errorMessage.style.visibility = 'visible';
+
+    } else if (!login && !pass ) {
+      errorMessage.innerText = 'Please enter your login and password.';
+      errorMessage.style.visibility = 'visible';
+
     } else {
-      // TODO: вывести сообщение о не правильном логине или пароле!
-      document.querySelector('.login__main-form')
-        .innerHTML = 'invalid login or password. Please enter a correct data';
+      errorMessage.innerText =
+        'Invalid login or password. Please enter a correct data.';
+      errorMessage.style.visibility = 'visible';
     }
   }
 
   setupListeners() {
     this.anchor.querySelector('.login__main-form-submit')
       .addEventListener('click', this.handleAuthorization.bind(this));
+
+    this.anchor.querySelectorAll('.login__main-form-input')
+      .forEach(elem => {
+        elem.addEventListener('keydown', this.authorizationByEnter.bind(this));
+      });
   }
 }

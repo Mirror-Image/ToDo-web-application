@@ -26,6 +26,15 @@
 	line-height: 1;
 }
 
+#error_message {
+	visibility: hidden;
+	margin-bottom: 7px;
+	text-align: center;
+	font-size: 1.1em;
+	color: red;
+	text-shadow: 1px 1px 5px #ff3d27;
+}
+
 .login,
 .content {
 	/*height: calc(var(--vh, 1vh) * 100);*/

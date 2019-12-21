@@ -1,5 +1,5 @@
 import Component from "./component.js";
-// import {Link as link} from "./utilites.js"
+import {errorMessage as errorMessage} from "./utilites.js"
 import store from "./store/index.js";
 import {request} from "./network.js";
 
@@ -8,7 +8,7 @@ export default class LoginComponent extends Component{
     super(store);
     console.log( store );
     this.settings = settings;
-    // request.checkAuthorization(this.settings);
+    request.checkAuthorization(this.settings);
     this.anchor = anchor;
     this.templateElement = document.getElementById('login-page')
       .content.cloneNode(true);
@@ -27,7 +27,7 @@ export default class LoginComponent extends Component{
 
     let login = document.getElementById('login').value.trim();
     let pass = document.getElementById('pass').value.trim();
-    const errorMessage = document.getElementById('error_message');
+
 
     if (login && pass) {
 
@@ -38,15 +38,11 @@ export default class LoginComponent extends Component{
       // link(this.settings.redirect)
 
     } else if ((!login && pass) || (login && !pass)) {
-      login ? errorMessage.innerText = 'Please enter your password.'
-        : errorMessage.innerText = 'Please enter your login.';
-
-      errorMessage.style.visibility = 'visible';
+      login ? errorMessage('Please enter your password.')
+        : errorMessage('Please enter your login.');
 
     } else if (!login && !pass) {
-      errorMessage.innerText = 'Please enter your login and password.';
-
-      errorMessage.style.visibility = 'visible';
+      errorMessage('Please enter your login and password.');
     }
   }
 

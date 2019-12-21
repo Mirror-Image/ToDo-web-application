@@ -27,7 +27,7 @@
 }
 
 #error_message {
-	visibility: hidden;
+	height: 30px;
 	margin-bottom: 7px;
 	text-align: center;
 	font-size: 1.1em;
@@ -402,23 +402,32 @@
 }
 
 @media (max-width: 1199px) {
+	#error_message {
+		font-size: 1em;
+	}
+
 	.login-window {
 		width: 60%;
 	}
+
 	.content__main-header {
 		width: 100%;
 	}
+
 	.content__main-header-form-block-button {
 		width: 12%;
 		padding: 17px 12px;
 		font-size: 1em;
 	}
+
 	.content__main-results {
 		width: 100%;
 	}
+
 	.content__main-results-filters a {
 		font-size: 1.4em;
 	}
+
 	.content__main-results-list {
 		width: 100%;
 	}
@@ -431,6 +440,15 @@
 }
 
 @media (max-width: 767px) {
+	#error_message {
+		font-size: 0.9em;
+	}
+
+	.login-window {
+		padding: 0;
+		width: 80%;
+	}
+
 	.content__main {
 		width: 90%;
 	}
@@ -481,6 +499,10 @@
 }
 
 @media (max-width: 400px) {
+	#error_message {
+		/*font-size: 0.8em;*/
+	}
+
 	.login-window {
 		padding: 20px;
 	}

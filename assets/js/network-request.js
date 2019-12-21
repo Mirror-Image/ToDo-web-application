@@ -1,4 +1,4 @@
-import {Link as link} from "./utilites.js"
+import {Link as link, errorMessage} from "./utilites.js"
 import store from "./store/index.js";
 import LoginComponent from "./login.js";
 
@@ -73,8 +73,10 @@ export default class NetworkRequest {
     .then(objError => {
       if (objError.error === 'User does not exist') {
         console.log( 'WOW!' );
+        errorMessage('Please enter a correct login or create a new account for free.');
 
       } else if (objError.error === 'Wrong password') {
+        errorMessage('Please enter a correct password.');
         console.log( 'WOW! WOW!' );
       }
     });

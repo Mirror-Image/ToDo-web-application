@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="740f69e6-da0b-45f3-bc4a-eaff43651b50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/js/component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/network-request.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/network.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/router-config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/store/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/store/observer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/store/reducers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/store/store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/utilites.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/content.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/network-request.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/network-request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/utilites.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/utilites.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,21 +79,37 @@
       <workItem from="1576598618093" duration="601000" />
       <workItem from="1576641213966" duration="616000" />
       <workItem from="1576652859515" duration="1677000" />
-      <workItem from="1576691891640" duration="37085000" />
+      <workItem from="1576691891640" duration="41590000" />
     </task>
+    <task id="LOCAL-00001" summary="Added Login and Check authorization">
+      <created>1576916311296</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1576916311296</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Login and Check authorization" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Login and Check authorization" />
   </component>
   <component name="WindowStateProjectService">
     <state x="688" y="309" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1576851158002">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="309" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1576851158002" />
-    <state x="583" y="28" key="CommitChangelistDialog2" timestamp="1576916281924">
+    <state x="583" y="28" key="CommitChangelistDialog2" timestamp="1576916310722">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="583" y="28" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1576916281924" />
+    <state x="583" y="28" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1576916310722" />
+    <state x="552" y="250" key="Vcs.Push.Dialog.v2" timestamp="1576916415057">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="250" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1576916415057" />
   </component>
 </project>

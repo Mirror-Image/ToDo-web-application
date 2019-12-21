@@ -93,4 +93,32 @@ export default class NetworkRequest {
 
     return store.props;
   }
+
+  deleteItem(id) {
+    fetch(`https://todo-app-back.herokuapp.com/todos/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${localStorage.getItem('token' )}`
+      }
+    }).then(resolved => {console.log( 'ok' )})
+      .catch(err => console.log( err ))
+  }
+
+  createItem(text, date, executionStatus) {
+    fetch('https://todo-app-back.herokuapp.com/todos', {
+      method: 'POST',
+      body:
+        JSON.stringify({
+          "text": `${text}`,
+          "createDate": `${date}`,
+          "completed": `${executionStatus}`,
+        }),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${localStorage.getItem('token' )}`
+      }
+    }).then(resolved => {console.log( resolved + 'ok' )})
+      .catch(err => console.log( err ))
+  }
 }

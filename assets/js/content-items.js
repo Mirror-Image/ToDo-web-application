@@ -9,20 +9,24 @@ import ContentComponent from "./content.js";
     console.log( this.anchor );
     this.data = request.readTodosRequest();
 
-    const input = document.getElementById('add-item-input');
+    this.form = document.getElementById('add-item-input');
     const submit = document.getElementById('add-item-button');
-    const handleClick = event => {
-      event.preventDefault();
-      let value = input.value.trim();
-      if (value.length) {
-        console.log( value );
-        store.dispatch('addItem', {text: value, createDate: Date.now(), completed: false});
-        input.focus();
-        input.value = '';
-      }
-    };
-    submit.addEventListener('click', handleClick);
+
+    submit.addEventListener('click', this.addItem.bind(this));
   }
+
+   addItem(event) {
+     event.preventDefault();
+     let value = this.form.value.trim();
+     const date = Date.now();
+     if (value.length) {
+       console.log( value );
+       store.dispatch('addItem', {text: value, createDate: date, completed: false});
+       this.form.focus();
+       this.form.value = '';
+       request.createItem(value, date, false);
+     }
+   };
 
   onPropsChange(value) {
     this.render(value);
@@ -57,7 +61,7 @@ import ContentComponent from "./content.js";
       <ul>
         ${
           store.props.map(todoItem => `
-            <li class="content__main-results-list-item">
+            <li class="content__main-results-list-item" id="${todoItem._id}" executionStatus="${todoItem.completed}">
               <p class="content__main-results-list-item-text">${todoItem.text}</p>
               <div class="content__main-results-list-item-buttons">
                 <a class="content__main-results-list-item-buttons-done done-button"></a>
@@ -69,16 +73,17 @@ import ContentComponent from "./content.js";
         }
       </ul>
     `;
-    // this.anchor.innerHTML = '';
     this.anchor.innerHTML = `${listItems}`;
     this.setupListeners();
   }
 
   setupListeners() {
     this.anchor.querySelectorAll('.delete-button').forEach((button, id) =>
-      button.addEventListener('click', () =>
-        store.dispatch('removeItem', { id })
-      )
+      button.addEventListener('click', () => {
+          store.dispatch('removeItem', {id});
+          console.log( button.parentElement.parentElement.id );
+          request.deleteItem(button.parentElement.parentElement.id);
+      })
     )
   }
 }

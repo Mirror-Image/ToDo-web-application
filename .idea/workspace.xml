@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="740f69e6-da0b-45f3-bc4a-eaff43651b50" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
+=======
+    <list default="true" id="740f69e6-da0b-45f3-bc4a-eaff43651b50" name="Default Changelist" comment="" />
+>>>>>>> 26258bc78fcf02595514df1efc5b15b9c455e02e
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,7 +81,11 @@
       <workItem from="1576598618093" duration="601000" />
       <workItem from="1576641213966" duration="616000" />
       <workItem from="1576652859515" duration="1677000" />
+<<<<<<< HEAD
       <workItem from="1576691891640" duration="68207000" />
+=======
+      <workItem from="1576691891640" duration="67716000" />
+>>>>>>> 26258bc78fcf02595514df1efc5b15b9c455e02e
     </task>
     <task id="LOCAL-00001" summary="Added Login and Check authorization">
       <created>1576916311296</created>

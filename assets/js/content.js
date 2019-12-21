@@ -1,17 +1,18 @@
 import Component from "./component.js";
 import store from "./store/index.js";
+// import ContentItemsComponent from "./content-items.js";
 
-export default class ContentComponent extends Component{
-  constructor(anchor) {
+export default class ContentComponent extends Component {
+  constructor() {
     super(store);
-    this.anchor = anchor;
+    this.anchor = document.getElementById('app');
     this.templateElement = document.getElementById('content-page')
       .content.cloneNode(true);
     this.anchor.appendChild(this.templateElement);
   }
 
   render() {
-    console.log( 'content render' );
+    console.log( 'component render' );
   }
 }
 

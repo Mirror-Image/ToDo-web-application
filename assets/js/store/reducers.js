@@ -4,13 +4,13 @@ export default function createReducers() {
       // нельзя менять предыдущее состояние state.todo.push...
       // возвращаем абсолютно новое состояниеб не мутируя страрое
       ...state, // копируем в объект текущий state через деструктуризацию
-      todo: [... state.todo, payload], // возвращаем по-новому массив todo
+      todos: [payload, ... state.todos], // возвращаем по-новому массив todo
     }),
     removeItem: (payload, state) => ({
       ...state,
-      todo: [
-        ...state.todo.slice(0, payload.id),
-        ...state.todo.slice(payload.id + 1, state.todo.length),
+      todos: [
+        ...state.todos.slice(0, payload.id),
+        ...state.todos.slice(payload.id + 1, state.todos.length),
       ]
     }),
     login: (payload, state) => ({

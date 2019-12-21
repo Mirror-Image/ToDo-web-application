@@ -8,7 +8,7 @@ export default class LoginComponent extends Component{
     super(store);
     console.log( store );
     this.settings = settings;
-    request.checkAuthorization(this.settings);
+    request.checkAuthorizationRequest(this.settings);
     this.anchor = anchor;
     this.templateElement = document.getElementById('login-page')
       .content.cloneNode(true);

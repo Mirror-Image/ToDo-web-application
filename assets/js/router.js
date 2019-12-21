@@ -19,6 +19,8 @@ export default class Router {
     }
     window.history.pushState(conf.data, '', conf.url);
 
+    // console.log( conf.component );
+
     this.component = new conf.component(this.anchor, conf.settings);
 
     this.component.render();

@@ -1,10 +1,11 @@
-import ContentComponent from "./content.js";
+// import ContentComponent from "./content.js";
 import LoginComponent from "./login.js";
+import ContentItemsComponent from "./content-items.js"
 
 export let routerConfig = {
   'login': {
     data: { route: 'login' },
-    url: 'login',
+    url: '',
     component: LoginComponent,
     settings: {
       redirect: 'content'
@@ -15,7 +16,9 @@ export let routerConfig = {
   'content': {
     data: { route: 'content' },
     url: 'content',
-    component: ContentComponent,
-    settings: {}
+    component: ContentItemsComponent,
+    settings: {
+
+    }
   }
 };

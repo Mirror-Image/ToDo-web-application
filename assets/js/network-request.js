@@ -1,17 +1,13 @@
 import {Link as link, errorMessage} from "./utilites.js"
 import store from "./store/index.js";
-import LoginComponent from "./login.js";
 
 export default class NetworkRequest {
   constructor(settings) {
     this.settings = settings;
-    // this.login = login;
-    // this.pass = pass;
-    // this.email = email;
     this.sessionAuthorizationData = null;
   }
 
-  checkAuthorization(settings) {
+  checkAuthorizationRequest(settings) {
     if (localStorage.getItem('token' )) {
       fetch('https://todo-app-back.herokuapp.com/me', {
         method: 'GET',
@@ -80,5 +76,21 @@ export default class NetworkRequest {
         console.log( 'WOW! WOW!' );
       }
     });
+  }
+
+  async readTodosRequest() {
+    await fetch('https://todo-app-back.herokuapp.com/todos', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${localStorage.getItem('token' )}`
+      }
+    })
+    .then(response => response.json())
+    .then(obj => {
+      store.props = obj;
+    });
+
+    return store.props;
   }
 }

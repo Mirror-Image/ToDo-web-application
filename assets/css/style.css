@@ -86,6 +86,7 @@
 
 .login__main,
 .content__main {
+	height: auto;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;

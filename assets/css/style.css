@@ -357,7 +357,7 @@
 }
 
 .content__main-results-list-item-text {
-	max-width: 85%;
+	max-width: 70%;
 	text-align: justify;
 	word-wrap: break-word;
 	font-family: 'Open Sans', sans-serif;
@@ -497,10 +497,17 @@
 		margin-bottom: 15px;
 		width: 100%;
 	}
+
+	.content__main-results-list-item {
+		padding: 3px 5px;
+	}
+
 	.content__main-results-list-item:hover a:last-of-type {
 		display: inline-block;
 	}
 	.content__main-results-list-item-buttons a {
+		width: 20px;
+		height: 20px;
 		margin-right: 4px;
 		margin-left: 4px;
 		visibility: visible;

@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="740f69e6-da0b-45f3-bc4a-eaff43651b50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/js/content-items.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/component.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/content.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/network-request.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/network-request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/router-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/router-config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/store/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/store/reducers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/store/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="740f69e6-da0b-45f3-bc4a-eaff43651b50" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,7 +75,7 @@
       <workItem from="1576598618093" duration="601000" />
       <workItem from="1576641213966" duration="616000" />
       <workItem from="1576652859515" duration="1677000" />
-      <workItem from="1576691891640" duration="67335000" />
+      <workItem from="1576691891640" duration="67716000" />
     </task>
     <task id="LOCAL-00001" summary="Added Login and Check authorization">
       <created>1576916311296</created>

@@ -7,7 +7,62 @@
 		<link rel="stylesheet" href="assets/css/style.css">
 	</head>
 	<body>
-		<div id="app"></div>
+		<template id="login-page">
+			<section class="login">
+				<div class="login-window">
+					<div class="login__header">
+						<h1 class="login__header-title">TODO LIST</h1><span class="login__header-description">Don't forget your most important stuff</span>
+					</div>
+					<div class="login__main">
+						<h3 class="login__main-signin">Sign in</h3>
+						<form class="login__main-form" method="post">
+							<input id="login" class="login__main-form-input" type="text" name="login" placeholder="Login" autofocus>
+							<input id="pass" class="login__main-form-input" type="password" name="password" placeholder="Password">
+							<p id="error_message">Invalid login or password. Please enter a correct data.</p>
+							<a type="submit" class="login__main-form-submit">Submit</a>
+						
+						</form>
+					</div>
+				</div>
+			</section>
+		</template>
+		<template id="content-page">
+			<div class="content">
+				<div class="content__main">
+					<div class="content__main-header">
+						<div class="content__main-header-form">
+							<form class="content__main-header-form-block">
+								<input class="content__main-header-form-block-input" type="text" placeholder="Type your note"><a class="content__main-header-form-block-button">Add</a>
+							</form>
+						</div>
+						<div class="content__main-header-statistics">
+							<p>All:<span> XXX</span></p>
+							<p>Done:<span> XXX</span></p>
+							<p>In progress:<span> XXX</span></p>
+						</div>
+					</div>
+					<div class="content__main-results">
+						<div class="content__main-results-filters"><a class="content__main-results-filters-done">Done</a><a class="content__main-results-filters-inprogress">In progress</a><a class="content__main-results-filters-all">All</a></div>
+						<div class="content__main-results-list">
+							<ul>
+								<li class="content__main-results-list-item">
+									<p class="content__main-results-list-item-text">Some text 1</p>
+									<div class="content__main-results-list-item-buttons"><a class="content__main-results-list-item-buttons-done"></a><a class="content__main-results-list-item-buttons-delete"></a><a class="content__main-results-list-item-buttons-edit"></a></div>
+								</li>
+								<li class="content__main-results-list-item">
+									<p class="content__main-results-list-item-text">Some text 2</p>
+									<div class="content__main-results-list-item-buttons"><a class="content__main-results-list-item-buttons-done"></a><a class="content__main-results-list-item-buttons-delete"></a><a class="content__main-results-list-item-buttons-edit"></a></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</template>
+		<div id="app">
+		
+		</div>
 		<script src="assets/js/main.js" type="module"></script>
+		<script src="assets/js/login.js" type="module"></script>
 	</body>
 </html>

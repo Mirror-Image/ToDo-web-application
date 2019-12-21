@@ -1,3 +1,72 @@
+import Component from "./component.js";
+// import {Link as link} from "./utilites.js"
+import store from "./store/index.js";
+import {request} from "./network.js";
+
+export default class LoginComponent extends Component{
+  constructor(anchor, settings) {
+    super(store);
+    console.log( store );
+    this.settings = settings;
+    // request.checkAuthorization(this.settings);
+    this.anchor = anchor;
+    this.templateElement = document.getElementById('login-page')
+      .content.cloneNode(true);
+    this.anchor.appendChild(this.templateElement);
+    this.setupListeners();
+  }
+
+  authorizationByEnter(e) {
+    if (e.key === 'Enter') {
+      return this.handleAuthorization(e);
+    }
+  }
+
+  handleAuthorization(e) {
+    e.preventDefault();
+
+    let login = document.getElementById('login').value.trim();
+    let pass = document.getElementById('pass').value.trim();
+    const errorMessage = document.getElementById('error_message');
+
+    if (login && pass) {
+
+      request.loginRequest(login, pass, this.settings);
+
+      console.log( store );
+      // console.log( request.sessionAuthorizationData );
+      // link(this.settings.redirect)
+
+    } else if ((!login && pass) || (login && !pass)) {
+      login ? errorMessage.innerText = 'Please enter your password.'
+        : errorMessage.innerText = 'Please enter your login.';
+
+      errorMessage.style.visibility = 'visible';
+
+    } else if (!login && !pass) {
+      errorMessage.innerText = 'Please enter your login and password.';
+
+      errorMessage.style.visibility = 'visible';
+    }
+  }
+
+  setupListeners() {
+
+    this.anchor.querySelector('.login__main-form-submit')
+      .addEventListener('click', this.handleAuthorization.bind(this));
+
+    this.anchor.querySelectorAll('.login__main-form-input')
+      .forEach(elem => {
+        elem.addEventListener('keydown', this.authorizationByEnter.bind(this));
+      });
+  }
+
+  render() {
+    console.log( 'login render' );
+  }
+}
+
+/*
 const login = `
   <!--<style>
     .login {
@@ -217,4 +286,4 @@ export class LoginPage extends LoginComponent {
         elem.addEventListener('keydown', this.authorizationByEnter.bind(this));
       });
   }
-}
+}*/

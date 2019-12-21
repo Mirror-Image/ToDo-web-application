@@ -1,3 +1,21 @@
+import Router from "./router.js";
+
+const router = new Router(document.getElementById('app'));
+
+window.addEventListener('changeRoute', event => router
+  .changeRoute(event.detail.route));
+
+window.dispatchEvent(new CustomEvent('changeRoute',
+  { detail: { route: 'login' }}));
+
+
+
+
+
+
+
+
+/*
 import {LoginPage} from './login.js'
 import {ContentPage} from './content.js'
 
@@ -56,8 +74,8 @@ window.addEventListener('changeRoute', event => {
 window.dispatchEvent(new CustomEvent('changeRoute', { detail: { route: 'login' } }));
 
 
-
-/*
+// TODO: the shadow DOM elements
+/!*
 class Login extends HTMLElement {
   constructor() {
     super();
@@ -72,4 +90,5 @@ class Login extends HTMLElement {
     this.render()
   }
 }
+*!/
 */

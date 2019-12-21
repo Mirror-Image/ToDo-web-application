@@ -1,7 +1,27 @@
+import Component from "./component.js";
+import store from "./store/index.js";
+
+export default class ContentComponent extends Component{
+  constructor(anchor) {
+    super(store);
+    this.anchor = anchor;
+    this.templateElement = document.getElementById('content-page')
+      .content.cloneNode(true);
+    this.anchor.appendChild(this.templateElement);
+  }
+
+  render() {
+    console.log( 'content render' );
+  }
+}
+
+
+
+/*
 const content = `
   <!--<style>
     .content {
-      /*height: calc(var(&#45;&#45;vh, 1vh) * 100);*/
+      /!*height: calc(var(&#45;&#45;vh, 1vh) * 100);*!/
       height: 100vh;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -429,4 +449,4 @@ export class ContentPage extends ContentComponent{
   setupListeners() {
 
   }
-}
+}*/

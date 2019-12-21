@@ -455,6 +455,11 @@
 		width: 80%;
 	}
 
+	.content {
+		background-image: none;
+		background-color: black;
+	}
+
 	.content__main {
 		width: 90%;
 	}

@@ -17,7 +17,6 @@ import ContentComponent from "./content.js";
   }
 
    addItem(event) {
-    console.log( event );
      if (event.key === 'Enter' || event.type === 'click') {
        event.preventDefault();
        let value = this.form.value.trim();

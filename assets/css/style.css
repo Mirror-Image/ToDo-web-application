@@ -348,10 +348,6 @@
 	background-color: rgba(252, 252, 252, 0.8);
 }
 
-.content--clear {
-	text-align: center;
-}
-
 .content__main-results-list-item:hover a {
 	visibility: visible;
 }
@@ -367,6 +363,10 @@
 	font-family: 'Open Sans', sans-serif;
 	font-size: 1.2em;
 	font-weight: bold;
+}
+
+.content--clear {
+	max-width: 100%;
 }
 
 .content__main-results-list-item-buttons a {

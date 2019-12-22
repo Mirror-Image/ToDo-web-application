@@ -1,17 +1,22 @@
 import Component from "./component.js";
 import store from "./store/index.js";
-// import ContentItemsComponent from "./content-items.js";
 
 export default class ContentComponent extends Component {
   constructor() {
-    super(store);
+    super(store); // TODO: что такое store? Проверить нужен ли он тут!
     this.anchor = document.getElementById('app');
     this.templateElement = document.getElementById('content-page')
       .content.cloneNode(true);
-    this.anchor.appendChild(this.templateElement);
+    this.onInitContent();
   }
 
-  render() {
+  onInitContent() {
+    console.log( 'ContentComponent initialized' );
+    this.renderContent()
+  }
+
+  renderContent() {
+    this.anchor.appendChild(this.templateElement);
     console.log( 'ContentComponent rendered' );
   }
 }

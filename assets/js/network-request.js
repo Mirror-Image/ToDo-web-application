@@ -98,11 +98,13 @@ export default class NetworkRequest {
         'Authorization': `${localStorage.getItem('token' )}`
       }
     }).then(resolved => {console.log( 'deleteItem' )})
-      .catch(err => console.log( err ))
+      .catch(err => console.log( err ));
+
+      return 1;
   }
 
-  createItem(text, date, executionStatus) {
-    fetch('https://todo-app-back.herokuapp.com/todos', {
+  async createItem(text, date, executionStatus) {
+    await fetch('https://todo-app-back.herokuapp.com/todos', {
       method: 'POST',
       body:
         JSON.stringify({
@@ -115,6 +117,8 @@ export default class NetworkRequest {
         'Authorization': `${localStorage.getItem('token' )}`
       }
     }).then(resolved => {console.log( 'createItem' )})
-      .catch(err => console.log( err ))
+      .catch(err => console.log( err ));
+
+      return 1;
   }
 }

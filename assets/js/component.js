@@ -6,6 +6,7 @@ export default class Component {
     //
     this.render = this.render.bind(this);
     store.events.subscribe('change', this.render);
+    console.log( store.events  );
     //
   }
 

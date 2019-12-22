@@ -1,6 +1,7 @@
 import LoginComponent from "./login.js";
-import ContentItemsComponent from "./content-items.js"
+// import ContentItemsComponent from "./form-component.js"
 import store from "./store/index.js";
+import ItemComponent from "./item-component.js";
 
 export let routerConfig = {
   'login': {
@@ -16,7 +17,7 @@ export let routerConfig = {
   'content': {
     data: { route: 'content' },
     url: 'content.html',
-    component: ContentItemsComponent,
+    component: ItemComponent,
     settings: {}
   }
 };

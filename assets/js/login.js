@@ -6,7 +6,6 @@ import {request} from "./network.js";
 export default class LoginComponent extends Component{
   constructor(anchor, settings) {
     super(store);
-    // console.log( store );
     this.settings = settings;
     this.anchor = anchor;
     this.templateElement = document.getElementById('login-page')
@@ -27,14 +26,8 @@ export default class LoginComponent extends Component{
       let login = document.getElementById('login').value.trim();
       let pass = document.getElementById('pass').value.trim();
 
-
       if (login && pass) {
-
         request.loginRequest(login, pass, this.settings);
-
-        console.log(store);
-        // console.log( request.sessionAuthorizationData );
-        // link(this.settings.redirect)
 
       } else if ((!login && pass) || (login && !pass)) {
         login ? errorMessage('Please enter your password.')
@@ -47,7 +40,6 @@ export default class LoginComponent extends Component{
   }
 
   setupListeners() {
-
     this.anchor.querySelector('.login__main-form-submit')
       .addEventListener('click', this.handleAuthorization.bind(this));
 

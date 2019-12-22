@@ -3,8 +3,8 @@ export function Link(route) {
     { detail: { route } }));
 }
 
-export function errorMessage(value) {
+export function errorMessage(text) {
   const errorMessage = document.getElementById('error_message');
 
-  return errorMessage.innerText = value;
+  return errorMessage.innerText = text;
 }

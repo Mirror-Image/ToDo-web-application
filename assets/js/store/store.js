@@ -14,7 +14,10 @@ export default class Store {
 
   set props(value) {
     console.log('Store updated');
-    this.state.todos = value.reverse();
+    this.state.todos = value;
+    // this.state.todos.reverse();
+    this.state.todos = value.sort((a, b) => a._id < b._id ? 1 : -1
+    );
   }
 
   get props() {

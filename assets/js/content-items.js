@@ -13,18 +13,25 @@ import ContentComponent from "./content.js";
     const submit = document.getElementById('add-item-button');
 
     submit.addEventListener('click', this.addItem.bind(this));
+    this.form.addEventListener('keydown', this.addItem.bind(this));
   }
 
    addItem(event) {
-     event.preventDefault();
-     let value = this.form.value.trim();
-     const date = Date.now();
-     if (value.length) {
-       console.log( value );
-       store.dispatch('addItem', {text: value, createDate: date, completed: false});
-       this.form.focus();
-       this.form.value = '';
-       request.createItem(value, date, false);
+     if (event.key === 'Enter' || event === 'click') {
+       event.preventDefault();
+       let value = this.form.value.trim();
+       let date = Date.now();
+       if (value.length) {
+         console.log(value);
+         store.dispatch('addItem', {
+           text: value,
+           createDate: date,
+           completed: false
+         });
+         this.form.focus();
+         this.form.value = '';
+         request.createItem(value, date, false);
+       }
      }
    };
 
@@ -53,7 +60,11 @@ import ContentComponent from "./content.js";
     console.log( 'items render' );
 
     if (store.props.length === 0) {
-      this.anchor.innerHTML = "No todo's";
+      this.anchor.innerHTML = `
+        <li class="content__main-results-list-item">
+          <p class="content__main-results-list-item-text content--clear">No todos</p>
+        </li>
+      `;
       return;
     }
 

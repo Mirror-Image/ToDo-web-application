@@ -101,7 +101,7 @@ export default class NetworkRequest {
         'Content-Type': 'application/json',
         'Authorization': `${localStorage.getItem('token' )}`
       }
-    }).then(resolved => {console.log( 'ok' )})
+    }).then(resolved => {console.log( 'deleteItem' )})
       .catch(err => console.log( err ))
   }
 
@@ -118,7 +118,7 @@ export default class NetworkRequest {
         'Content-Type': 'application/json',
         'Authorization': `${localStorage.getItem('token' )}`
       }
-    }).then(resolved => {console.log( resolved + 'ok' )})
+    }).then(resolved => {console.log( 'createItem' )})
       .catch(err => console.log( err ))
   }
 }

@@ -21,8 +21,7 @@ import ContentComponent from "./content.js";
        event.preventDefault();
        let value = this.form.value.trim();
        let date = Date.now();
-       if (value.length) {
-         console.log(value);
+       if (value.length >= 5) {
          store.dispatch('addItem', {
            text: value,
            createDate: date,
@@ -31,6 +30,9 @@ import ContentComponent from "./content.js";
          this.form.focus();
          this.form.value = '';
          request.createItem(value, date, false);
+       } else {
+         // TODO: rework it!
+         alert('5 characters minimum');
        }
      }
    };

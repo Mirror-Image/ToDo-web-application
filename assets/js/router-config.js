@@ -1,6 +1,6 @@
-// import ContentComponent from "./content.js";
 import LoginComponent from "./login.js";
 import ContentItemsComponent from "./content-items.js"
+import store from "./store/index.js";
 
 export let routerConfig = {
   'login': {
@@ -8,7 +8,7 @@ export let routerConfig = {
     url: 'login.html',
     component: LoginComponent,
     settings: {
-      redirect: 'content'
+      redirect: 'content',
       // handleLogIn: () => store.dispatch('login')
     }
   },

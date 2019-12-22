@@ -33,6 +33,7 @@ import ContentComponent from "./content.js";
        } else {
          // TODO: rework it!
          alert('5 characters minimum');
+         this.form.focus();
        }
      }
    };

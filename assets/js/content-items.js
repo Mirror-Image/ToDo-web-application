@@ -17,7 +17,8 @@ import ContentComponent from "./content.js";
   }
 
    addItem(event) {
-     if (event.key === 'Enter' || event === 'click') {
+    console.log( event );
+     if (event.key === 'Enter' || event.type === 'click') {
        event.preventDefault();
        let value = this.form.value.trim();
        let date = Date.now();

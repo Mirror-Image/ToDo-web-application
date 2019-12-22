@@ -1,5 +1,4 @@
 import Observer from "./observer.js";
-// import ContentItemsComponent from "../content-items.js"
 
 export default class Store {
   constructor(reducers) {
@@ -14,7 +13,7 @@ export default class Store {
   }
 
   set props(value) {
-    console.log('store updated');
+    console.log('Store updated');
     this.state.todos = value.reverse();
   }
 
@@ -24,7 +23,7 @@ export default class Store {
 
   dispatch(actionType, payload) { // обновляет state со старого на новый используя какой-то из reducer'ов
     if (this.reducers[actionType]) {
-      console.log( this.reducers );
+      // console.log( this.reducers );
       this.state = this.reducers[actionType](payload, this.state); // в reducer передает payload и старый state и обновим state
       console.log( this.state );
       this.events.next('change', this.state);

@@ -12,7 +12,7 @@ export default class ContentComponent extends Component {
   }
 
   render() {
-    console.log( 'component render' );
+    console.log( 'ContentComponent rendered' );
   }
 }
 

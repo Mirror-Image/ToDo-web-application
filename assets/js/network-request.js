@@ -25,11 +25,8 @@ export default class NetworkRequest {
           localStorage.setItem('id', this.sessionAuthorizationData.id);
           localStorage.setItem('token', this.sessionAuthorizationData.token);
 
-          console.log( localStorage.getItem('token' ) );
-          console.log( localStorage.getItem('id' ) );
-
-          console.log( store );
-          link(settings.redirect)
+          // console.log( store );
+          link(settings.redirect);
         }
       }).catch(error => console.log(error));
     }

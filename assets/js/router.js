@@ -24,6 +24,7 @@ export default class Router {
     this.component = new conf.component(this.anchor, conf.settings);
 
     // this.component.render();
+    this.component.onInit();
 
   }
 }

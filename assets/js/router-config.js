@@ -5,7 +5,7 @@ import ContentItemsComponent from "./content-items.js"
 export let routerConfig = {
   'login': {
     data: { route: 'login' },
-    url: 'login',
+    url: 'login.html',
     component: LoginComponent,
     settings: {
       redirect: 'content'
@@ -15,10 +15,8 @@ export let routerConfig = {
 
   'content': {
     data: { route: 'content' },
-    url: 'content',
+    url: 'content.html',
     component: ContentItemsComponent,
-    settings: {
-
-    }
+    settings: {}
   }
 };

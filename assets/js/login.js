@@ -6,13 +6,17 @@ import {request} from "./network.js";
 export default class LoginComponent extends Component{
   constructor(anchor, settings) {
     super(store);
-    console.log( store );
+    // console.log( store );
     this.settings = settings;
     this.anchor = anchor;
     this.templateElement = document.getElementById('login-page')
       .content.cloneNode(true);
     this.anchor.appendChild(this.templateElement);
     this.setupListeners();
+  }
+
+  onInit() {
+    console.log( 'LoginComponent initialized' );
     request.checkAuthorizationRequest(this.settings);
   }
 
@@ -54,7 +58,7 @@ export default class LoginComponent extends Component{
   }
 
   render() {
-    console.log( 'login render' );
+    console.log( 'LoginComponent rendered' );
   }
 }
 

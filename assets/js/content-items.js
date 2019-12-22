@@ -6,14 +6,19 @@ import ContentComponent from "./content.js";
   constructor() {
     super();
     this.anchor = document.querySelector('.content__main-results-list');
-    console.log( this.anchor );
-    this.data = request.readTodosRequest();
+    // console.log( this.anchor );
 
     this.form = document.getElementById('add-item-input');
     const submit = document.getElementById('add-item-button');
 
     submit.addEventListener('click', this.addItem.bind(this));
     this.form.addEventListener('keydown', this.addItem.bind(this));
+  }
+
+
+  onInit() {
+    console.log( 'ContentItemsComponent initialized' );
+    this.data = request.readTodosRequest();
   }
 
    addItem(event) {
@@ -40,7 +45,6 @@ import ContentComponent from "./content.js";
 
   set data(value) {
     value.then(obj => {
-      console.log( store.props );
       store.props = obj;
       console.log( store.props );
       this.render(store.props);
@@ -49,7 +53,7 @@ import ContentComponent from "./content.js";
   }
 
   render(value) {
-    console.log( 'items render' );
+    console.log( 'ContentItemsComponent rendered' );
     if (value.length === 0) {
       this.anchor.innerHTML = `
         <li class="content__main-results-list-item">

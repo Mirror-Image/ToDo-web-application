@@ -15,7 +15,7 @@ export default class Component {
     store.events.unsubscribe('change', this.render);
     //
     console.log( 'DOM clear' );
-    console.log( this.anchor );
+    // console.log( this.anchor );
     document.getElementById('app').innerHTML = ''; // очищаем
   }
 }

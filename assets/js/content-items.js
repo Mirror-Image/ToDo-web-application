@@ -38,43 +38,30 @@ import ContentComponent from "./content.js";
      }
    };
 
-  onPropsChange(value) {
-    this.render(value);
-
-  }
-
   set data(value) {
-    console.log( value );
     value.then(obj => {
-      this._data = obj;
-      console.log( this._data );
-      this.onPropsChange(this._data);
-      console.log( this._data );
+      console.log( store.props );
+      store.props = obj;
+      console.log( store.props );
+      this.render(store.props);
     });
-  }
 
-  get data() {
-    return this._data;
   }
 
   render(value) {
-    console.log( value );
-    console.log( store.props );
     console.log( 'items render' );
-
-    if (store.props.length === 0) {
+    if (value.length === 0) {
       this.anchor.innerHTML = `
         <li class="content__main-results-list-item">
           <p class="content__main-results-list-item-text content--clear">No todos</p>
         </li>
       `;
-      return;
     }
 
     let listItems = `
       <ul>
         ${
-          store.props.map(todoItem => `
+          value.map(todoItem => `
             <li class="content__main-results-list-item" id="${todoItem._id}" executionStatus="${todoItem.completed}">
               <p class="content__main-results-list-item-text">${todoItem.text}</p>
               <div class="content__main-results-list-item-buttons">

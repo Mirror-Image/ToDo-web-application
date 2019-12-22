@@ -14,9 +14,8 @@ export default class Store {
   }
 
   set props(value) {
-    console.log('Happy');
+    console.log('store updated');
     this.state.todos = value.reverse();
-
   }
 
   get props() {

@@ -16,33 +16,29 @@ export default class LoginComponent extends Component{
     request.checkAuthorizationRequest(this.settings);
   }
 
-  authorizationByEnter(e) {
-    if (e.key === 'Enter') {
-      return this.handleAuthorization(e);
-    }
-  }
+  handleAuthorization(event) {
+    if (event.key === 'Enter' || event.type === 'click') {
+      event.preventDefault();
 
-  handleAuthorization(e) {
-    e.preventDefault();
-
-    let login = document.getElementById('login').value.trim();
-    let pass = document.getElementById('pass').value.trim();
+      let login = document.getElementById('login').value.trim();
+      let pass = document.getElementById('pass').value.trim();
 
 
-    if (login && pass) {
+      if (login && pass) {
 
-      request.loginRequest(login, pass, this.settings);
+        request.loginRequest(login, pass, this.settings);
 
-      console.log( store );
-      // console.log( request.sessionAuthorizationData );
-      // link(this.settings.redirect)
+        console.log(store);
+        // console.log( request.sessionAuthorizationData );
+        // link(this.settings.redirect)
 
-    } else if ((!login && pass) || (login && !pass)) {
-      login ? errorMessage('Please enter your password.')
-        : errorMessage('Please enter your login.');
+      } else if ((!login && pass) || (login && !pass)) {
+        login ? errorMessage('Please enter your password.')
+          : errorMessage('Please enter your login.');
 
-    } else if (!login && !pass) {
-      errorMessage('Please enter your login and password.');
+      } else if (!login && !pass) {
+        errorMessage('Please enter your login and password.');
+      }
     }
   }
 
@@ -53,7 +49,7 @@ export default class LoginComponent extends Component{
 
     this.anchor.querySelectorAll('.login__main-form-input')
       .forEach(elem => {
-        elem.addEventListener('keydown', this.authorizationByEnter.bind(this));
+        elem.addEventListener('keydown', this.handleAuthorization.bind(this));
       });
   }
 

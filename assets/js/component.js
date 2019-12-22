@@ -14,7 +14,7 @@ export default class Component {
     this.anchor.innerHTML = ''; // очищаем
     store.events.unsubscribe('change', this.render);
     //
-    console.log( 'YOU ARE LUCKY!' );
+    console.log( 'DOM clear' );
     console.log( this.anchor );
     document.getElementById('app').innerHTML = ''; // очищаем
   }

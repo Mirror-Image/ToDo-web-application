@@ -79,6 +79,7 @@ export default class NetworkRequest {
   }
 
   async readTodosRequest() {
+    let res;
     await fetch('https://todo-app-back.herokuapp.com/todos', {
       method: 'GET',
       headers: {
@@ -86,12 +87,10 @@ export default class NetworkRequest {
         'Authorization': `${localStorage.getItem('token' )}`
       }
     })
-    .then(response => response.json())
-    .then(obj => {
-      store.props = obj;
-    });
+      .then(response => response.json())
+      .then(obj => res = obj);
 
-    return store.props;
+    return res;
   }
 
   deleteItem(id) {

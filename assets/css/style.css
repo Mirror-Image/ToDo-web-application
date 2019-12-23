@@ -207,6 +207,11 @@
 	border-radius: 7px;
 }
 
+.editor-list-form {
+	margin-bottom: 0;
+	width: 100%;
+}
+
 .content__main-header-form-block-input {
 	padding: 10px;
 	height: 30px;
@@ -329,7 +334,7 @@
 
 .content__main-results-list-item {
 	margin: 0 auto 15px;
-	padding: 15px;
+	padding: 15px 0;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -365,8 +370,9 @@
 }
 
 .content__main-results-list-item-text {
-	padding: 7px 0;
-	max-width: 70%;
+	padding: 7px 15px;
+	max-width: 80%;
+	flex: 1;
 	text-align: justify;
 	word-wrap: break-word;
 	font-family: 'Open Sans', sans-serif;
@@ -488,13 +494,20 @@
 		-ms-flex-align: center;
 		align-items: center;
 	}
+
 	.content__main-header-form {
 		width: 100%;
 	}
+
 	.content__main-header-form-block {
 		margin-bottom: 15px;
 		width: 100%;
 	}
+
+	.editor-list-form {
+		margin-bottom: 0;
+	}
+
 	.content__main-header-statistics {
 		padding-left: 0;
 		padding-right: 0;
@@ -512,12 +525,18 @@
 	}
 
 	.content__main-results-list-item {
-		padding: 3px 5px;
+			padding: 0;
+	}
+
+	.content__main-results-list-item-text {
+		width: 65%;
+		padding: 3px 10px;
 	}
 
 	.content__main-results-list-item:hover a:last-of-type {
 		display: inline-block;
 	}
+
 	.content__main-results-list-item-buttons a {
 		width: 20px;
 		height: 20px;
@@ -531,41 +550,48 @@
 }
 
 @media (max-width: 400px) {
-
 	.login-window {
 		padding: 20px;
 	}
+
 	.login__header {
 		padding: 0;
 		margin-bottom: 15px;
 	}
+
 	.login__header-title {
 		margin-bottom: 10px;
 		font-size: 3em;
 	}
+
 	.login__main-signin {
 		margin-bottom: 5px;
 	}
+
 	.login__main-form {
 		padding: 0;
 	}
+
 	.content__main {
 		margin-top: 15px;
 	}
+
 	.content__main-results-filters {
 		margin-bottom: 20px;
 	}
+
 	.content__main-results-filters a {
 		margin-right: 15px;
 		font-size: 1.2em;
 	}
-	.content__main-results-list-item {
-		padding: 5px;
+
+	.content__main-results-list-item-text {
+		width: 63%;
+		padding: 7px 3px;
 	}
+
 	.content__main-results-list-item-buttons a {
 		margin-right: 2px;
 		margin-left: 2px;
-		height: 20px;
-		width: 20px;
 	}
 }

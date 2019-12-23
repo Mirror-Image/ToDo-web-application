@@ -10,7 +10,6 @@ export default class Observer {
     if (!this.subscribers[event]) {
       this.subscribers[event] = [];
     }
-
     this.subscribers[event].push(callback); // под каждым различным ивентом хранится массив подписок
   }
 
@@ -26,7 +25,6 @@ export default class Observer {
       console.warn( 'Event not supported', event );
       return;
     }
-
     this.subscribers[event].forEach(cb => cb(payload));
   }
 }

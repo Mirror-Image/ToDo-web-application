@@ -1,10 +1,10 @@
 export default function createReducers() {
   return {
     addItem: (payload, state) => ({
-      // нельзя менять предыдущее состояние state.todo.push...
+      // нельзя менять предыдущее состояние state.to-do.push...
       // возвращаем абсолютно новое состояниеб не мутируя страрое
       ...state, // копируем в объект текущий state через деструктуризацию
-      todos: [payload, ... state.todos], // возвращаем по-новому массив todo
+      todos: [payload, ... state.todos], // возвращаем по-новому массив to-do
     }),
     editItem: (payload, state) => ({
       ...state,

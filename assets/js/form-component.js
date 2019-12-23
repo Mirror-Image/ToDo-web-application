@@ -1,4 +1,4 @@
-import {request} from "./network.js";
+import {request} from "./singletones-initialize.js";
 import store from "./store/index.js";
 import ContentComponent from "./content.js";
 
@@ -47,8 +47,8 @@ export default class FormComponent extends ContentComponent {
 
         this.form.focus();
         this.form.value = '';
-        await request.createItemRequest(value, date, false);
-        this.onInitList();
+        await request.createItemRequest(value, date, false)
+          .then(() => this.onInitList());
 
       } else {
         // TODO: rework it!

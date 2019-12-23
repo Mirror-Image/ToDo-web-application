@@ -27,7 +27,6 @@ export default class Store {
     if (this.reducers[actionType]) {
       // console.log( this.reducers );
       this.state = this.reducers[actionType](payload, this.state); // в reducer передает payload и старый state и обновим state
-      console.log( this.state );
       this.events.next('change', this.state);
     }
   }

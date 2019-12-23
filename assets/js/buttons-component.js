@@ -1,7 +1,6 @@
 import ListComponent from "./list-component.js";
 import store from "./store/index.js";
-import {request} from "./network.js";
-
+import {request} from "./singletones-initialize.js";
 
 export default class ButtonsComponent extends ListComponent{
   constructor() {
@@ -30,7 +29,7 @@ export default class ButtonsComponent extends ListComponent{
           creator: obj.creator,
         });
 
-        this.renderList();
+        this.onInitList();
         this.onInitButtons();
       });
     });
@@ -52,20 +51,17 @@ export default class ButtonsComponent extends ListComponent{
         <a class="content__main-results-list-item-buttons-edit edit-button"></a>
       `);
     }
-
     console.log( 'ButtonsComponent rendered' );
   }
 
   setupListenersButtons(value) {
-    // console.log( 12 );
-    // console.log( value );
     value.querySelectorAll('.delete-button')
       .forEach((button, id) => {
         let idNumber = button.parentElement.parentElement.id;
         button.addEventListener('click', async () => {
           store.dispatch('removeItem', {id});
           await request.deleteItemRequest(idNumber);
-          this.renderList();
+          this.onInitList();
           this.onInitButtons();
         })
       });

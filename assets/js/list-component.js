@@ -1,6 +1,6 @@
 import store from "./store/index.js";
 import FormComponent from "./form-component.js";
-import {request} from "./network.js";
+import {request, counter} from "./singletones-initialize.js";
 
 export default class ListComponent extends FormComponent {
   constructor() {
@@ -19,14 +19,13 @@ export default class ListComponent extends FormComponent {
   set data(value) {
     value.then(obj => {
       store.props = obj;
-      console.log( store.props );
       this.renderList();
+      counter.onInitCounter(store.props);
       this.onInitButtons();
     });
   }
 
-  renderList(value, anchor) {
-    console.log( 'ListComponent rendered' );
+  renderList(anchor, value) {
     if (store.props.length === 0) {
       this.anchorList.innerHTML = `
         <ul>
@@ -36,7 +35,7 @@ export default class ListComponent extends FormComponent {
           </li>
         </ul>
       `;
-    } else if (value) {
+    } else if (anchor && value) {
       anchor.innerHTML = `
         <p class="content__main-results-list-item-text">${value}</p>
         <div class="content__main-results-list-item-buttons"></div>
@@ -55,5 +54,6 @@ export default class ListComponent extends FormComponent {
     `;
       this.render();
     }
+    console.log( 'ListComponent rendered' );
   }
 }

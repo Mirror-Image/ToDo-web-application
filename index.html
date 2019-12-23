@@ -20,7 +20,6 @@
 							<input id="pass" class="login__main-form-input" type="password" name="password" placeholder="Password">
 							<p id="error_message"></p>
 							<a type="submit" class="login__main-form-submit">Submit</a>
-						
 						</form>
 					</div>
 				</div>
@@ -30,29 +29,21 @@
 			<div class="content">
 				<div class="content__main">
 					<div class="content__main-header">
-						<div class="content__main-header-form">
-							<!--<form class="content__main-header-form-block">
-								<input id="add-item-input" class="content__main-header-form-block-input" type="text" placeholder="Type your note"><a id="add-item-button" class="content__main-header-form-block-button">Add</a>
-							</form>-->
-						</div>
+						<div class="content__main-header-form"></div>
 						<div class="content__main-header-statistics">
-							<p>All:<span> XXX</span></p>
-							<p>Done:<span> XXX</span></p>
-							<p>In progress:<span> XXX</span></p>
+							<p id="counter-all">All:<span> XXX</span></p>
+							<p id="counter-done">Done:<span> XXX</span></p>
+							<p id="counter-in-progress">In progress:<span> XXX</span></p>
 						</div>
 					</div>
 					<div class="content__main-results">
 						<div class="content__main-results-filters"><a class="content__main-results-filters-done">Done</a><a class="content__main-results-filters-inprogress">In progress</a><a class="content__main-results-filters-all">All</a></div>
-						<div class="content__main-results-list">
-						</div>
+						<div class="content__main-results-list"></div>
 					</div>
 				</div>
 			</div>
 		</template>
-		<div id="app">
-		
-		</div>
+		<div id="app"></div>
 		<script src="assets/js/main.js" type="module"></script>
-		<script src="assets/js/login.js" type="module"></script>
 	</body>
 </html>

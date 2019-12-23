@@ -3,6 +3,11 @@ import store from "./store/index.js";
 
 export default class NetworkRequest {
   constructor(settings) {
+    if (NetworkRequest.instance) {
+      return NetworkRequest.instance
+    }
+    NetworkRequest.instance = this;
+
     this.settings = settings;
     this.sessionAuthorizationData = null;
     this.serverURL = new URL('https://todo-app-back.herokuapp.com/')
@@ -26,7 +31,6 @@ export default class NetworkRequest {
           localStorage.setItem('id', this.sessionAuthorizationData.id);
           localStorage.setItem('token', this.sessionAuthorizationData.token);
 
-          // console.log( store );
           link(settings.redirect);
         }
       }).catch(error => console.log(error));
@@ -168,6 +172,4 @@ export default class NetworkRequest {
     }).then(resolved => {console.log( 'ItemUpdated' )})
       .catch(err => console.log( err ));
   }
-
-
 }

@@ -18,13 +18,6 @@ export default class Router {
       this.component.clearDOM(this.anchor);
     }
     window.history.pushState(conf.data, '', conf.url);
-
-    // console.log( conf.component );
-
     this.component = new conf.component(this.anchor, conf.settings);
-
-    // this.component.render();
-    // this.component.onInit();
-
   }
 }

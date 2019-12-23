@@ -5,6 +5,5 @@ export function Link(route) {
 
 export function errorMessage(text) {
   const errorMessage = document.getElementById('error_message');
-
   return errorMessage.innerText = text;
 }

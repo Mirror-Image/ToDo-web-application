@@ -5,11 +5,12 @@ export default class NetworkRequest {
   constructor(settings) {
     this.settings = settings;
     this.sessionAuthorizationData = null;
+    this.serverURL = new URL('https://todo-app-back.herokuapp.com/')
   }
 
   checkAuthorizationRequest(settings) {
     if (localStorage.getItem('token' )) {
-      fetch('https://todo-app-back.herokuapp.com/me', {
+      fetch(`${new URL('me', this.serverURL)}`, {
         method: 'GET',
         headers: {
           'Authorization': `${localStorage.getItem('token' )}`
@@ -33,7 +34,7 @@ export default class NetworkRequest {
   }
 
   loginRequest(login, pass, settings) {
-    fetch('https://todo-app-back.herokuapp.com/login', {
+    fetch(`${new URL('login', this.serverURL)}`, {
       method: 'POST',
       body:
         JSON.stringify({
@@ -75,9 +76,9 @@ export default class NetworkRequest {
     });
   }
 
-  async readTodosRequest() {
+  async readAllTodosRequest() {
     let res;
-    await fetch('https://todo-app-back.herokuapp.com/todos', {
+    await fetch(`${new URL('todos', this.serverURL)}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -90,8 +91,23 @@ export default class NetworkRequest {
     return res;
   }
 
-  deleteItem(id) {
-    fetch(`https://todo-app-back.herokuapp.com/todos/${id}`, {
+  async readSingleTodoRequest(id) {
+    let res;
+    await fetch(`${new URL(`todos/${id}`, this.serverURL)}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${localStorage.getItem('token' )}`
+      }
+    })
+      .then(response => response.json())
+      .then(obj => res = obj);
+
+    return res;
+  }
+
+  deleteItemRequest(id) {
+    fetch(`${new URL(`todos/${id}`, this.serverURL)}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -100,11 +116,11 @@ export default class NetworkRequest {
     }).then(resolved => {console.log( 'deleteItem' )})
       .catch(err => console.log( err ));
 
-      return 1;
+    return 'ready';
   }
 
-  async createItem(text, date, executionStatus) {
-    await fetch('https://todo-app-back.herokuapp.com/todos', {
+  async createItemRequest(text, date, executionStatus) {
+    await fetch(`${new URL('todos', this.serverURL)}`, {
       method: 'POST',
       body:
         JSON.stringify({
@@ -119,6 +135,39 @@ export default class NetworkRequest {
     }).then(resolved => {console.log( 'createItem' )})
       .catch(err => console.log( err ));
 
-      return 1;
+    return 'ready';
   }
+
+  async updateItemRequest(id, boolean, text) {
+    await fetch(`${new URL(`todos/${id}`, this.serverURL)}`, {
+      method: 'PUT',
+      body:
+        JSON.stringify({
+          text: `${text}`,
+          completed: `${boolean}`,
+        }),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${localStorage.getItem('token' )}`
+      }
+    }).then(resolved => {console.log( 'ItemUpdated' )})
+      .catch(err => console.log( err ));
+  }
+
+  async markDoneItemRequest(id, boolean) {
+    await fetch(`${new URL(`todos/${id}`, this.serverURL)}`, {
+      method: 'PUT',
+      body:
+        JSON.stringify({
+          completed: `${boolean}`,
+        }),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${localStorage.getItem('token' )}`
+      }
+    }).then(resolved => {console.log( 'ItemUpdated' )})
+      .catch(err => console.log( err ));
+  }
+
+
 }

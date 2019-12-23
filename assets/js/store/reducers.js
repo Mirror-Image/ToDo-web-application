@@ -6,10 +6,13 @@ export default function createReducers() {
       ...state, // копируем в объект текущий state через деструктуризацию
       todos: [payload, ... state.todos], // возвращаем по-новому массив todo
     }),
-    // editItem: (payload, state) => ({
-    //   ...state,
-    //   todos: []
-    // }),
+    editItem: (payload, state) => ({
+      ...state,
+      todos: [
+        ...state.todos.slice(0, payload.id),
+        ...state.todos.slice(payload.id + 1, state.todos.length),
+      ]
+    }),
     removeItem: (payload, state) => ({
       ...state,
       todos: [

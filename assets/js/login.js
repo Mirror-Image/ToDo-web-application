@@ -11,12 +11,13 @@ export default class LoginComponent extends Component{
     this.templateElement = document.getElementById('login-page')
       .content.cloneNode(true);
     this.anchor.appendChild(this.templateElement);
-    this.setupListeners();
+    this.onInit();
   }
 
   onInit() {
     console.log( 'LoginComponent initialized' );
     request.checkAuthorizationRequest(this.settings);
+    this.setupListeners();
   }
 
   handleAuthorization(event) {

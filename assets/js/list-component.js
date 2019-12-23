@@ -13,18 +13,19 @@ export default class ListComponent extends FormComponent {
 
   onInitList() {
     console.log( 'ListComponent initialized' );
-    this.data = request.readTodosRequest();
+    this.data = request.readAllTodosRequest();
   }
 
   set data(value) {
     value.then(obj => {
       store.props = obj;
       console.log( store.props );
-      this.renderList(store.props);
+      this.renderList();
+      this.onInitButtons();
     });
   }
 
-  renderList(value) {
+  renderList(value, anchor) {
     console.log( 'ListComponent rendered' );
     if (store.props.length === 0) {
       this.anchorList.innerHTML = `
@@ -35,16 +36,19 @@ export default class ListComponent extends FormComponent {
           </li>
         </ul>
       `;
+    } else if (value) {
+      anchor.innerHTML = `
+        <p class="content__main-results-list-item-text">${value}</p>
+        <div class="content__main-results-list-item-buttons"></div>
+      `;
     } else {
       this.anchorList.innerHTML = `
       <ul>
         ${store.props.map(todoItem => `
           <li class="content__main-results-list-item" id="${todoItem._id}" 
-            executionStatus="${todoItem.completed}">
+            executionStatus="${todoItem.completed}" markedDone="${todoItem.completed}">
             <p class="content__main-results-list-item-text">${todoItem.text}</p>
-            <div class="content__main-results-list-item-buttons">
-              
-            </div>
+            <div class="content__main-results-list-item-buttons"></div>
           </li>
         `).join('')}
       </ul>

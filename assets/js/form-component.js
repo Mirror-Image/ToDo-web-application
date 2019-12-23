@@ -47,7 +47,7 @@ export default class FormComponent extends ContentComponent {
 
         this.form.focus();
         this.form.value = '';
-        await request.createItem(value, date, false);
+        await request.createItemRequest(value, date, false);
         this.onInitList();
 
       } else {

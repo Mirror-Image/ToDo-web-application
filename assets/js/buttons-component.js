@@ -60,9 +60,13 @@ export default class ButtonsComponent extends ListComponent{
         let idNumber = button.parentElement.parentElement.id;
         button.addEventListener('click', async () => {
           store.dispatch('removeItem', {id});
-          await request.deleteItemRequest(idNumber);
-          this.onInitList();
-          this.onInitButtons();
+          request.deleteItemRequest(idNumber)
+            .then(response => response)
+            .catch(err => console.log(err))
+            .finally(() => {
+              this.onInitList();
+              // this.onInitButtons();
+            });
         })
       });
 

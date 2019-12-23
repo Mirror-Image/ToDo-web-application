@@ -110,8 +110,8 @@ export default class NetworkRequest {
     return res;
   }
 
-  deleteItemRequest(id) {
-    fetch(`${new URL(`todos/${id}`, this.serverURL)}`, {
+  async deleteItemRequest(id) {
+    await fetch(`${new URL(`todos/${id}`, this.serverURL)}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

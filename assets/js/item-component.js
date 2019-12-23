@@ -154,8 +154,6 @@ export default class ItemComponent extends ButtonsComponent {
         }
       });
 
-
-
     /*
       Добавляем событие на элемент списка, которое открывает редактор элемента
       (делегирование)

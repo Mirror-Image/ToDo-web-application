@@ -30,8 +30,9 @@ export default class ListComponent extends FormComponent {
       this.anchorList.innerHTML = `
         <ul>
           <li class="content__main-results-list-item list--clear">
-          <p class="content__main-results-list-item-text content--clear">
-          No todos. You are free for today!</p>
+            <p class="content__main-results-list-item-text content--clear">
+              No todos. You are free for today!
+            </p>
           </li>
         </ul>
       `;
@@ -42,17 +43,16 @@ export default class ListComponent extends FormComponent {
       `;
     } else {
       this.anchorList.innerHTML = `
-      <ul>
-        ${store.props.map(todoItem => `
-          <li class="content__main-results-list-item" id="${todoItem._id}" 
-            executionStatus="${todoItem.completed}" markedDone="${todoItem.completed}">
-            <p class="content__main-results-list-item-text">${todoItem.text}</p>
-            <div class="content__main-results-list-item-buttons"></div>
-          </li>
-        `).join('')}
-      </ul>
-    `;
-      this.render();
+        <ul>
+          ${store.props.map(todoItem => `
+            <li class="content__main-results-list-item" id="${todoItem._id}" 
+              executionStatus="${todoItem.completed}" markedDone="${todoItem.completed}">
+              <p class="content__main-results-list-item-text">${todoItem.text}</p>
+              <div class="content__main-results-list-item-buttons"></div>
+            </li>
+          `).join('')}
+        </ul>
+      `;
     }
     console.log( 'ListComponent rendered' );
   }

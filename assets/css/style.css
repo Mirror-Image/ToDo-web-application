@@ -203,7 +203,7 @@
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	border: 3px solid #dadce0;
+	border: 3px solid #808080;
 	border-radius: 7px;
 }
 
@@ -218,7 +218,7 @@
 	margin-bottom: 0;
 	width: 90%;
 	border: none;
-	border-right: 3px solid #dadce0;
+	border-right: 3px solid #808080;
 	border-radius: 3px 0 0 3px;
 	font-weight: bold;
 }
@@ -256,6 +256,7 @@
 	-ms-flex-align: end;
 	align-items: flex-end;
 	border-radius: 7px;
+	border: 3px solid #808080;
 	background-color: rgba(252, 252, 252, 0.8);
 }
 
@@ -352,7 +353,7 @@
 
 .content__main-results-list-item {
 	margin: 0 auto 15px;
-	padding: 15px 0;
+	padding: 15px 15px;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -366,7 +367,10 @@
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	border: 3px solid #dadce0;
+
+	/*border: 3px solid #dadce0;*/
+	border: 3px solid #808080;
+
 	border-radius: 7px;
 	background-color: rgba(252, 252, 252, 0.8);
 }
@@ -379,12 +383,12 @@
 	visibility: visible;
 }
 
-.content__main-results-list-item:hover a:last-of-type {
+.content__main-results-list-item a:last-of-type {
 	display: none;
 }
 
-#edit-item-button {
-	display: inline-block;
+.content__main-results-list-item:hover a:last-of-type {
+	display: none;
 }
 
 .content__main-results-list-item-text {
@@ -413,10 +417,6 @@
 	cursor: pointer;
 	visibility: hidden;
 	border: 3px solid #fcfcfc;
-}
-
-.content__main-results-list-item-buttons a:last-of-type {
-	/*margin-right: 3px;*/
 }
 
 .content__main-results-list-item-buttons-done {
@@ -520,15 +520,21 @@
 	.content__main-header-form-block {
 		margin-bottom: 15px;
 		width: calc(100% - 6px);
+		border: 3px solid #dadce0;
 	}
 
 	.editor-list-form {
 		margin-bottom: 0;
 	}
 
+	.content__main-header-form-block-input {
+		border-right: 3px solid #dadce0;
+	}
+
 	.content__main-header-statistics {
 		padding-left: 0;
 		padding-right: 0;
+		width: 100%;
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
@@ -539,7 +545,7 @@
 		-ms-flex-pack: distribute;
 		justify-content: space-around;
 		margin-bottom: 15px;
-		width: 100%;
+		border: none;
 	}
 
 	.content__main-results-filters[done-filter] .content__main-results-filters-done {
@@ -555,7 +561,12 @@
 	}
 
 	.content__main-results-list-item {
-			padding: 0;
+		padding: 0;
+		border: 3px solid #dadce0;
+	}
+
+	.content__main-results-list-item a:last-of-type {
+		display: inline-block;
 	}
 
 	.content__main-results {

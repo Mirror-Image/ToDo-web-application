@@ -1,9 +1,11 @@
-export default class CounterComponent{
+import FormComponent from "./form-component.js";
+import store from "./store/index.js";
+
+export default class CounterComponent extends FormComponent{
   constructor() {
-    if (CounterComponent.instance) {
-      return CounterComponent.instance
-    }
-    CounterComponent.instance = this;
+    super();
+    this.counterAnchor = document
+      .querySelector('.content__main-header-statistics');
   }
 
   onInitCounter(value) {
@@ -41,8 +43,7 @@ export default class CounterComponent{
   }
 
   renderCounter(all, done, inProgress) {
-    const anchor = document.querySelector('.content__main-header-statistics')
-    anchor.innerHTML = `
+    this.counterAnchor.innerHTML = `
       <p id="counter-all">All:<span>${all}</span></p>
       <p id="counter-done">Done:<span>${done}</span></p>
       <p id="counter-in-progress">In progress:<span>${inProgress}</span></p>

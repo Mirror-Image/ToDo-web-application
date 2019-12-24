@@ -1,52 +1,88 @@
-export default class FilterComponent {
-  constructor(anchor) {
-    if (FilterComponent.instance) {
-      return FilterComponent.instance
-    }
-    FilterComponent.instance = this;
+import CounterComponent from "./counter-component.js";
 
-    this.anchor = anchor;
+export default class FilterComponent extends CounterComponent {
+  constructor() {
+    super();
+    this.filterAnchor = document.querySelector('.content__main-results-filters');
+    this.listElement = document.querySelector('.content__main-results-list');
+    this.onInitFilter();
   }
 
   onInitFilter() {
     console.log('CounterComponent initialized');
-
-
+    this.renderFilter();
     this.setupListenersFilter();
   }
 
-  doneFilter(value) {
-    console.log( value );
-    let result = [];
-    for (let item of value) {
-      if (item.completed) {
-        result.push(item);
-      }
+  doneFilter() {
+    if (!this.listElement.hasAttribute('done-filter')) {
+
+      this.listElement.removeAttribute('in-progress-filter');
+      this.listElement.removeAttribute('all-filter');
+
+      this.filterAnchor.removeAttribute('in-progress-filter');
+      this.filterAnchor.removeAttribute('all-filter');
     }
-    return result;
+    this.listElement.toggleAttribute('done-filter');
+    this.filterAnchor.toggleAttribute('done-filter');
+
+    this.renderList();
+    this.onInitButtons();
   }
 
-  inProgressFilter(value) {
-    console.log( value );
-    let result = [];
-    for (let item of value) {
-      if (!item.completed) {
-        result.push(item);
-      }
+  inProgressFilter() {
+    if (!this.listElement.hasAttribute('in-progress-filter')) {
+
+      this.listElement.removeAttribute('done-filter');
+      this.listElement.removeAttribute('all-filter');
+
+      this.filterAnchor.removeAttribute('done-filter');
+      this.filterAnchor.removeAttribute('all-filter');
     }
-    return result;
+    this.listElement.toggleAttribute('in-progress-filter');
+    this.filterAnchor.toggleAttribute('in-progress-filter');
+
+    this.renderList();
+    this.onInitButtons();
   }
 
-  AllFilter(value) {
-    return value;
+  allFilter() {
+    if (!this.listElement.hasAttribute('all-filter')) {
+
+      this.listElement.removeAttribute('in-progress-filter');
+      this.listElement.removeAttribute('done-filter');
+
+      this.filterAnchor.removeAttribute('in-progress-filter');
+      this.filterAnchor.removeAttribute('done-filter');
+    }
+    this.listElement.toggleAttribute('all-filter');
+    this.filterAnchor.toggleAttribute('all-filter');
+
+    this.renderList();
+    this.onInitButtons();
   }
 
-  renderFilter(value) {
-
+  renderFilter() {
+    this.filterAnchor.innerHTML = `
+      <a class="content__main-results-filters-done">Done</a>
+      <a class="content__main-results-filters-inprogress">In progress</a>
+      <a class="content__main-results-filters-all">All</a>
+    `;
     console.log('CounterComponent rendered');
   }
 
   setupListenersFilter() {
+    const doneFilterButton = this.filterAnchor
+      .querySelector('.content__main-results-filters-done');
+    const inProgressFilter = this.filterAnchor
+      .querySelector('.content__main-results-filters-inprogress');
+    const allFilterButton = this.filterAnchor
+      .querySelector('.content__main-results-filters-all');
 
+    doneFilterButton.addEventListener('click', this.doneFilter.bind(this));
+
+    inProgressFilter.addEventListener('click', this.inProgressFilter.bind(this));
+
+    allFilterButton.addEventListener('click', this.allFilter.bind(this));
   }
 }

@@ -1,6 +1,7 @@
-import {request} from "./singletones-initialize.js";
-import store from "./store/index.js";
 import ContentComponent from "./content.js";
+import store from "./store/index.js";
+import {request} from "./singletones-initialize.js";
+
 
 export default class FormComponent extends ContentComponent {
   constructor() {

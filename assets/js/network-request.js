@@ -1,5 +1,6 @@
 import {Link as link, errorMessage} from "./utilites.js"
 import store from "./store/index.js";
+import {authorizationData} from "./singletones-initialize.js";
 
 export default class NetworkRequest {
   constructor(settings) {
@@ -14,11 +15,11 @@ export default class NetworkRequest {
   }
 
   checkAuthorizationRequest(settings) {
-    if (localStorage.getItem('token' )) {
+    if (authorizationData.token) {
       fetch(`${new URL('me', this.serverURL)}`, {
         method: 'GET',
         headers: {
-          'Authorization': `${localStorage.getItem('token' )}`
+          'Authorization': `${authorizationData.token}`
         }
       })
       .then(response => response.json())
@@ -28,8 +29,8 @@ export default class NetworkRequest {
         if (!this.sessionAuthorizationData.error) {
           store.dispatch('login', this.sessionAuthorizationData);
 
-          localStorage.setItem('id', this.sessionAuthorizationData.id);
-          localStorage.setItem('token', this.sessionAuthorizationData.token);
+          authorizationData.id = this.sessionAuthorizationData.id;
+          authorizationData.token = this.sessionAuthorizationData.token;
 
           link(settings.redirect);
         }
@@ -58,10 +59,10 @@ export default class NetworkRequest {
       if (!this.sessionAuthorizationData.error) {
         store.dispatch('login', this.sessionAuthorizationData);
 
-        localStorage.setItem('id', this.sessionAuthorizationData.id);
-        localStorage.setItem('token', this.sessionAuthorizationData.token);
+        authorizationData.id = this.sessionAuthorizationData.id;
+        authorizationData.token = this.sessionAuthorizationData.token;
 
-        console.log( localStorage.getItem('token' ) );
+        console.log( authorizationData.token );
 
         console.log( store );
         link(settings.redirect)
@@ -86,7 +87,7 @@ export default class NetworkRequest {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${localStorage.getItem('token' )}`
+        'Authorization': `${authorizationData.token}`
       }
     })
       .then(response => response.json())
@@ -101,7 +102,7 @@ export default class NetworkRequest {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${localStorage.getItem('token' )}`
+        'Authorization': `${authorizationData.token}`
       }
     })
       .then(response => response.json())
@@ -115,7 +116,7 @@ export default class NetworkRequest {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${localStorage.getItem('token' )}`
+        'Authorization': `${authorizationData.token}`
       }
     }).then(resolved => {console.log( 'deleteItem' )})
       .catch(err => console.log( err ));
@@ -134,7 +135,7 @@ export default class NetworkRequest {
         }),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${localStorage.getItem('token' )}`
+        'Authorization': `${authorizationData.token}`
       }
     }).then(resolved => {console.log( 'createItem' )})
       .catch(err => console.log( err ));
@@ -152,7 +153,7 @@ export default class NetworkRequest {
         }),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${localStorage.getItem('token' )}`
+        'Authorization': `${authorizationData.token}`
       }
     }).then(resolved => {console.log( 'ItemUpdated' )})
       .catch(err => console.log( err ));
@@ -167,7 +168,7 @@ export default class NetworkRequest {
         }),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${localStorage.getItem('token' )}`
+        'Authorization': `${authorizationData.token}`
       }
     }).then(resolved => {console.log( 'ItemUpdated' )})
       .catch(err => console.log( err ));

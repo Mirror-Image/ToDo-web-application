@@ -103,6 +103,25 @@
 	align-items: center;
 }
 
+.login__main-sign-up {
+	margin-bottom: 19px;
+	padding: 0 20px 19px ;
+	border-bottom: 2px solid #111111;
+}
+
+.login__main-sign-up,
+.login__main-sign-in {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.2em;
+}
+
+.login__main-sign-up-link,
+.login__main-sign-in-link {
+	font-size: 1em;
+	color: #1c79ff;
+}
+
+
 .login__main-signin {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 1.75em;
@@ -131,12 +150,12 @@ p.login__main-form-input {
 }
 
 .login__main-form-input-checkbox {
-
+ /*TODO: checkbox*/
 }
 
 .login__main-form-checkbox-label {
 	font-family: 'Open Sans', sans-serif;
-	font-size: 0.8em;
+	font-size: 1em;
 }
 
 .login__main-form-submit {
@@ -510,6 +529,17 @@ p.login__main-form-input {
 		width: 80%;
 	}
 
+	.login__main-sign-up,
+	.login__main-sign-in {
+		margin-bottom: 19px;
+
+		font-size: 1.1em;
+	}
+
+	.login__main-form-checkbox-label {
+		font-size: 0.8em;
+	}
+
 	.content {
 		background-image: none;
 		background-color: black;
@@ -626,6 +656,16 @@ p.login__main-form-input {
 		padding: 20px;
 	}
 
+	.login__main-sign-up {
+		padding: 19px 10px 9px;
+	}
+
+	.login__main-sign-up,
+	.login__main-sign-in {
+		margin-bottom: 9px;
+		font-size: 1em;
+	}
+
 	.login__header {
 		padding: 0;
 		margin-bottom: 15px;
@@ -653,7 +693,6 @@ p.login__main-form-input {
 	}
 
 	.content__main-results-filters a {
-		/*margin-right: 12px;*/
 		font-size: 1.2em;
 	}
 

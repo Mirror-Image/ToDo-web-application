@@ -1,9 +1,9 @@
-import FilterComponent from "./filter-component.js";
+import ContentFilterComponent from "./content-filter-component.js";
 import store from "./store/index.js";
 import {request} from "./singletones-initialize.js";
 
 
-export default class ListComponent extends FilterComponent {
+export default class ContentListComponent extends ContentFilterComponent {
   constructor() {
     super();
     this.anchorList = document
@@ -13,7 +13,7 @@ export default class ListComponent extends FilterComponent {
   }
 
   onInitList() {
-    console.log( 'ListComponent initialized' );
+    console.log( 'ContentListComponent initialized' );
     this.data = request.readAllTodosRequest();
   }
 
@@ -95,6 +95,6 @@ export default class ListComponent extends FilterComponent {
         `;
       }
     }
-    console.log( 'ListComponent rendered' );
+    console.log( 'ContentListComponent rendered' );
   }
 }

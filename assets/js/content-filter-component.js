@@ -1,6 +1,6 @@
-import CounterComponent from "./counter-component.js";
+import ContentCounterComponent from "./content-counter-component.js";
 
-export default class FilterComponent extends CounterComponent {
+export default class ContentFilterComponent extends ContentCounterComponent {
   constructor() {
     super();
     this.filterAnchor = document.querySelector('.content__main-results-filters');
@@ -9,7 +9,7 @@ export default class FilterComponent extends CounterComponent {
   }
 
   onInitFilter() {
-    console.log('CounterComponent initialized');
+    console.log('ContentCounterComponent initialized');
     this.renderFilter();
     this.setupListenersFilter();
   }
@@ -68,7 +68,7 @@ export default class FilterComponent extends CounterComponent {
       <a class="content__main-results-filters-inprogress">In progress</a>
       <a class="content__main-results-filters-all">All</a>
     `;
-    console.log('CounterComponent rendered');
+    console.log('ContentCounterComponent rendered');
   }
 
   setupListenersFilter() {

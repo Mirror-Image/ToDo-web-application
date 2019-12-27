@@ -123,6 +123,22 @@
 	border-radius: 7px;
 }
 
+p.login__main-form-input {
+	padding: 0;
+	height: auto;
+	font-weight: normal;
+	border: none;
+}
+
+.login__main-form-input-checkbox {
+
+}
+
+.login__main-form-checkbox-label {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.8em;
+}
+
 .login__main-form-submit {
 	display: -webkit-inline-box;
 	display: -ms-inline-flexbox;

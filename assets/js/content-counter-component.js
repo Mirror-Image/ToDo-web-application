@@ -1,7 +1,6 @@
-import FormComponent from "./form-component.js";
-import store from "./store/index.js";
+import ContentFormComponent from "./content-form-component.js";
 
-export default class CounterComponent extends FormComponent{
+export default class ContentCounterComponent extends ContentFormComponent{
   constructor() {
     super();
     this.counterAnchor = document
@@ -9,7 +8,7 @@ export default class CounterComponent extends FormComponent{
   }
 
   onInitCounter(value) {
-    console.log('CounterComponent initialized');
+    console.log('ContentCounterComponent initialized');
     let all = this.counterAll(value);
     let done = this.counterDone(value);
     let inProgress = this.counterInProgress(value);
@@ -49,6 +48,6 @@ export default class CounterComponent extends FormComponent{
       <p id="counter-in-progress">In progress:<span>${inProgress}</span></p>
     `;
 
-    console.log('CounterComponent rendered');
+    console.log('ContentCounterComponent rendered');
   }
 }

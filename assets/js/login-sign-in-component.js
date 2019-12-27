@@ -1,22 +1,21 @@
 import Component from "./component.js";
 import {errorMessage as errorMessage} from "./utilites.js"
-import store from "./store/index.js";
 import {request} from "./singletones-initialize.js";
+import store from "./store/index.js";
 
-export default class LoginComponent extends Component{
+export default class LoginSignInComponent extends Component {
   constructor(anchor, settings) {
     super(store);
     this.settings = settings;
     this.anchor = anchor;
-    this.templateElement = document.getElementById('login-page')
+    this.templateElement = document.getElementById('sign-in')
       .content.cloneNode(true);
     this.anchor.appendChild(this.templateElement);
     this.onInit();
   }
 
   onInit() {
-    console.log( 'LoginComponent initialized' );
-    request.checkAuthorizationRequest(this.settings);
+    console.log( 'LoginSignInComponent initialized' );
     this.setupListeners();
   }
 
@@ -26,9 +25,14 @@ export default class LoginComponent extends Component{
 
       let login = document.getElementById('login').value.trim();
       let pass = document.getElementById('pass').value.trim();
+      let saveLoginData = document.getElementById('login-data');
 
       if (login && pass) {
-        request.loginRequest(login, pass, this.settings);
+        if (saveLoginData.checked) {
+          request.loginRequest(login, pass, true, this.settings);
+        }
+
+        request.loginRequest(login, pass, false, this.settings);
 
       } else if ((!login && pass) || (login && !pass)) {
         login ? errorMessage('Please enter your password.')
@@ -51,6 +55,6 @@ export default class LoginComponent extends Component{
   }
 
   render() {
-    console.log( 'LoginComponent rendered' );
+    console.log( 'LoginSignInComponent rendered' );
   }
 }

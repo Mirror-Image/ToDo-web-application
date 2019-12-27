@@ -32,13 +32,13 @@ export default class NetworkRequest {
           authorizationData.id = this.sessionAuthorizationData.id;
           authorizationData.token = this.sessionAuthorizationData.token;
 
-          link(settings.redirect);
+          link(settings.redirect[0]);
         }
       }).catch(error => console.log(error));
     }
   }
 
-  loginRequest(login, pass, settings) {
+  loginRequest(login, pass, saveData, settings) {
     fetch(`${new URL('login', this.serverURL)}`, {
       method: 'POST',
       body:
@@ -59,26 +59,57 @@ export default class NetworkRequest {
       if (!this.sessionAuthorizationData.error) {
         store.dispatch('login', this.sessionAuthorizationData);
 
-        authorizationData.id = this.sessionAuthorizationData.id;
-        authorizationData.token = this.sessionAuthorizationData.token;
+        this.token = this.sessionAuthorizationData.token;
+        this.id = this.sessionAuthorizationData.id;
 
-        console.log( authorizationData.token );
+        if (saveData) {
+          authorizationData.id = this.sessionAuthorizationData.id;
+          authorizationData.token = this.sessionAuthorizationData.token;
+        }
 
-        console.log( store );
-        link(settings.redirect)
+        link(settings.redirect);
       }
     })
     .catch(error => error.json())
     .then(objError => {
       if (objError.error === 'User does not exist') {
-        console.log( 'WOW!' );
         errorMessage('Please enter a correct login or create a new account for free.');
 
       } else if (objError.error === 'Wrong password') {
         errorMessage('Please enter a correct password.');
-        console.log( 'WOW! WOW!' );
       }
     });
+  }
+
+  registerRequest(email, login, pass) {
+    fetch(`${new URL('register', this.serverURL)}`, {
+      method: 'POST',
+      body:
+        JSON.stringify({
+          email: email,
+          password: login,
+          username: pass,
+        }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => res.ok ? res : Promise.reject(res))
+      .then(response => response.json())
+      .then(obj => {
+        this.sessionAuthorizationData = obj;
+        console.log( this.sessionAuthorizationData );
+
+        if (!this.sessionAuthorizationData.error) {
+          this.token = this.sessionAuthorizationData.token;
+          this.id = this.sessionAuthorizationData.id;
+          link('content');
+        }
+      })
+      .catch(error => error.json())
+      .then(objError => {
+        errorMessage(`${objError.error}`);
+      });
   }
 
   async readAllTodosRequest() {
@@ -87,7 +118,7 @@ export default class NetworkRequest {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${authorizationData.token}`
+        'Authorization': `${authorizationData.token || this.token} `
       }
     })
       .then(response => response.json())
@@ -102,7 +133,7 @@ export default class NetworkRequest {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${authorizationData.token}`
+        'Authorization': `${authorizationData.token || this.token}`
       }
     })
       .then(response => response.json())
@@ -116,7 +147,7 @@ export default class NetworkRequest {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${authorizationData.token}`
+        'Authorization': `${authorizationData.token || this.token}`
       }
     }).then(resolved => {console.log( 'deleteItem' )})
       .catch(err => console.log( err ));
@@ -135,7 +166,7 @@ export default class NetworkRequest {
         }),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${authorizationData.token}`
+        'Authorization': `${authorizationData.token || this.token}`
       }
     }).then(resolved => {console.log( 'createItem' )})
       .catch(err => console.log( err ));
@@ -153,7 +184,7 @@ export default class NetworkRequest {
         }),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${authorizationData.token}`
+        'Authorization': `${authorizationData.token || this.token}`
       }
     }).then(resolved => {console.log( 'ItemUpdated' )})
       .catch(err => console.log( err ));
@@ -168,7 +199,7 @@ export default class NetworkRequest {
         }),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${authorizationData.token}`
+        'Authorization': `${authorizationData.token || this.token}`
       }
     }).then(resolved => {console.log( 'ItemUpdated' )})
       .catch(err => console.log( err ));

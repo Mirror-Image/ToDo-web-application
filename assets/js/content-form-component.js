@@ -1,9 +1,9 @@
-import ContentComponent from "./content.js";
+import ContentComponent from "./content-component.js";
 import store from "./store/index.js";
 import {request} from "./singletones-initialize.js";
 
 
-export default class FormComponent extends ContentComponent {
+export default class ContentFormComponent extends ContentComponent {
   constructor() {
     super();
     this.anchorForm = document
@@ -13,7 +13,7 @@ export default class FormComponent extends ContentComponent {
   }
 
   onInitForm() {
-    console.log( 'FormComponent initialized' );
+    console.log( 'ContentFormComponent initialized' );
     this.renderForm();
     this.form = document.getElementById('add-item-input');
     this.submitButton = document.getElementById('add-item-button');
@@ -29,7 +29,7 @@ export default class FormComponent extends ContentComponent {
           class="content__main-header-form-block-button">Add</a>
       </form>
     `;
-    console.log( 'FormComponent rendered' );
+    console.log( 'ContentFormComponent rendered' );
   }
 
   async addItemComponent(event) {

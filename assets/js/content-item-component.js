@@ -1,8 +1,8 @@
-import ButtonsComponent from "./buttons-component.js";
+import ContentButtonsComponent from "./content-buttons-component.js";
 import store from "./store/index.js";
 import {request} from "./singletones-initialize.js";
 
-export default class ItemComponent extends ButtonsComponent {
+export default class ContentItemComponent extends ContentButtonsComponent {
   constructor() {
     super();
     this.itemAnchor = document
@@ -10,7 +10,7 @@ export default class ItemComponent extends ButtonsComponent {
   }
 
   onInitItem(item, value) {
-    console.log( 'ItemComponent initialized' );
+    console.log( 'ContentItemComponent initialized' );
     this.render(item, value);
     this.setupListeners(item);
   }
@@ -113,7 +113,7 @@ export default class ItemComponent extends ButtonsComponent {
             class="content__main-header-form-block-button">Edit</a>
         </form>
       `;
-      console.log('ItemComponent rendered');
+      console.log('ContentItemComponent rendered');
     }
   }
 

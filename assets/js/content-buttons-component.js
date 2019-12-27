@@ -1,8 +1,8 @@
-import ListComponent from "./list-component.js";
+import ContentListComponent from "./content-list-component.js";
 import store from "./store/index.js";
 import {request} from "./singletones-initialize.js";
 
-export default class ButtonsComponent extends ListComponent{
+export default class ContentButtonsComponent extends ContentListComponent{
   constructor() {
     super();
     this.itemsArray = document
@@ -10,7 +10,7 @@ export default class ButtonsComponent extends ListComponent{
   }
 
   onInitButtons() {
-    console.log('ButtonsComponent initialized');
+    console.log('ContentButtonsComponent initialized');
     this.renderButtons();
     this.setupListenersButtons(this.anchor);
     this.onInitItem();
@@ -51,9 +51,9 @@ export default class ButtonsComponent extends ListComponent{
         <a class="content__main-results-list-item-buttons-edit edit-button"></a>
       `);
     }
-    console.log( 'ButtonsComponent rendered' );
+    console.log( 'ContentButtonsComponent rendered' );
   }
-
+  // TODO: Переписать через делегирование
   setupListenersButtons(value) {
     value.querySelectorAll('.delete-button')
       .forEach((button, id) => {
@@ -65,7 +65,6 @@ export default class ButtonsComponent extends ListComponent{
             .catch(err => console.log(err))
             .finally(() => {
               this.onInitList();
-              // this.onInitButtons();
             });
         })
       });

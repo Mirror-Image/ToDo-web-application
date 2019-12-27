@@ -67,10 +67,11 @@ export default class ContentItemComponent extends ContentButtonsComponent {
       let input = document.querySelector('#edit-item-input');
       let inputValue = input.value.trim();
 
-      // let anchor = this._editingItem;
       let anchor = this.editingItem;
-      // let id = this._editingItem.id;
       let id = this.editingItem.id;
+      let boolean = this.editingItem.getAttribute('markeddone');
+
+      console.log( boolean );
 
       if (inputValue.length >= 5) {
 
@@ -80,7 +81,7 @@ export default class ContentItemComponent extends ContentButtonsComponent {
         */
         this.editingItem = 0;
         this.value = '';
-        request.updateItemRequest(id, false, inputValue);
+        request.updateItemRequest(id, boolean, inputValue);
 
         this.renderList(anchor, inputValue);
         this.onInitButtons();

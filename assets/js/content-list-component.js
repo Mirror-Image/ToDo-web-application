@@ -45,14 +45,6 @@ export default class ContentListComponent extends ContentFilterComponent {
       `;
 
     } else {
-      /*const listTemplate = `
-        <li class="content__main-results-list-item" id="${todoItem._id}"
-          executionStatus="${todoItem.completed}" markedDone="${todoItem.completed}">
-          <p class="content__main-results-list-item-text">${todoItem.text}</p>
-          <div class="content__main-results-list-item-buttons"></div>
-        </li>
-      `;*/
-
       if (this.anchorList.hasAttribute('done-filter')) {
         let filteredArray = store.props.filter(item => item.completed === true);
         this.anchorList.innerHTML = `

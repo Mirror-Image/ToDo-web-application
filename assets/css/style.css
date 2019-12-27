@@ -149,10 +149,6 @@ p.login__main-form-input {
 	border: none;
 }
 
-.login__main-form-input-checkbox {
- /*TODO: checkbox*/
-}
-
 .login__main-form-checkbox-label {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 1em;

@@ -28,9 +28,6 @@ export default class ContentButtonsComponent extends ContentListComponent{
           text: obj.text,
           creator: obj.creator,
         });
-
-        this.onInitList();
-        this.onInitButtons();
       });
     });
   }
@@ -53,7 +50,7 @@ export default class ContentButtonsComponent extends ContentListComponent{
     }
     console.log( 'ContentButtonsComponent rendered' );
   }
-  // TODO: Переписать через делегирование
+
   setupListenersButtons(value) {
     value.querySelectorAll('.delete-button')
       .forEach((button, id) => {

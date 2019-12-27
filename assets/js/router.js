@@ -14,7 +14,6 @@ export default class Router {
 
     if (!conf) return;
     if (this.component) {
-      console.log( this.component );
       this.component.clearDOM(this.anchor);
     }
     window.history.pushState(conf.data, '', conf.url);

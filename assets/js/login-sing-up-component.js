@@ -16,6 +16,7 @@ export default class LoginSignUpComponent extends Component {
 
   onInit() {
     console.log( 'LoginSignUpComponent initialized' );
+    this.render();
     this.setupListeners();
   }
 

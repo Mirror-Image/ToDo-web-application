@@ -26,8 +26,7 @@ export default class ContentFilterComponent extends ContentCounterComponent {
     this.listElement.toggleAttribute('done-filter');
     this.filterAnchor.toggleAttribute('done-filter');
 
-    this.renderList();
-    this.onInitButtons();
+    this.onInitList();
   }
 
   inProgressFilter() {
@@ -42,8 +41,7 @@ export default class ContentFilterComponent extends ContentCounterComponent {
     this.listElement.toggleAttribute('in-progress-filter');
     this.filterAnchor.toggleAttribute('in-progress-filter');
 
-    this.renderList();
-    this.onInitButtons();
+    this.onInitList();
   }
 
   allFilter() {
@@ -58,8 +56,7 @@ export default class ContentFilterComponent extends ContentCounterComponent {
     this.listElement.toggleAttribute('all-filter');
     this.filterAnchor.toggleAttribute('all-filter');
 
-    this.renderList();
-    this.onInitButtons();
+    this.onInitList();
   }
 
   renderFilter() {

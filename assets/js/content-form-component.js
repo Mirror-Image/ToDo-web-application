@@ -52,7 +52,7 @@ export default class ContentFormComponent extends ContentComponent {
           .then(() => this.onInitList());
 
       } else {
-        // TODO: rework it!
+        // TODO: rework it! Make PopUp!
         alert('5 characters minimum');
         this.form.focus();
       }

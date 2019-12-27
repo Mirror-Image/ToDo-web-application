@@ -17,6 +17,7 @@ export default class LoginComponent extends Component {
   onInit() {
     console.log( 'LoginComponent initialized' );
     request.checkAuthorizationRequest(this.settings);
+    this.render();
     this.setupListeners();
   }
 

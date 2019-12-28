@@ -119,6 +119,12 @@
 .login__main-sign-in-link {
 	font-size: 1em;
 	color: #1c79ff;
+	cursor: pointer;
+}
+
+.login__main-sign-up-link:hover,
+.login__main-sign-in-link:hover {
+	text-shadow: 1px 0 10px #1c79ff;
 }
 
 

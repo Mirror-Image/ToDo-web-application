@@ -37,17 +37,17 @@ export default class ContentItemComponent extends ContentButtonsComponent {
   onReadyToEditItem(item, value) {
     /*
       Условие If срабатывает тогда, когда у нас уже один элемент открыт в режиме
-      редактирования но мы хотим незавершая первого, переключиться на редактирование
+      редактирования но мы хотим незавершая его редактирования (не сохраняя изменений, нажав кнопку "Edit"), переключиться на редактирование
       другого элемента (например, когда случайно вызвали редактор не того элемента)
     */
     if (this.editingItem) {
       console.log(  this.editingItem );
-
+      // Возвращаем предыдущий элемент в исходное состояние ("до вызова редактора")
       this.renderList(this.editingItem, this.value);
       this.renderButtons( this.editingItem);
-
+      // Вызываем режим редактора на новом элементе
       this.onInitItem(item, value);
-      // Сохраняем состояние последующих вызовов
+      // Сохраняем состояние для последующих вызовов
       this.editingItem = item;
       this.value = value;
 
@@ -71,12 +71,10 @@ export default class ContentItemComponent extends ContentButtonsComponent {
       let id = this.editingItem.id;
       let boolean = this.editingItem.getAttribute('markeddone');
 
-      console.log( boolean );
-
       if (inputValue.length >= 5) {
 
         /*
-          Обнуляем состояние предыдущего элемента который был открыт в режиме
+          Обнуляем состояние последнего элемента который был открыт в режиме
           редактирования
         */
         this.editingItem = 0;

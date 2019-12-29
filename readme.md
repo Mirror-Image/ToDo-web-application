@@ -26,26 +26,20 @@ https://github.com/Mirror-Image/ToDo-web-application
 Структура программы
 ----------------------
 Программа состоит из таких компонентов:
+* Component
 * Login Component
+* Login Sign-In Component
+* Login Sign-Up Component
 * Content Component
-* Form Component
-* List Component
-* Item Component
-* Buttons Component
-* 
+* Content-Form Component
+* Content-Counter Component
+* Content-Filter Component
+* Content-List Component
+* Content-Buttons Component
+* Content-Item Component
+* NetworkRequest
+* AuthorizationStorageComponent
+* Store
+* Observer
+* Utilities
 ----------------------------------------------------------------------------------
-
-
-# 3. Заходим в полученную папку с программой
-
-* Удалите папку **$PLUGINSDIR**
-
-> эта папка бесполезна
-
-*  Перейдите в папку **bin** и найдите там файл конфигурации **idea.properties**
-
-```
-# idea.config.path=${user.home}/.WebStorm/config
-
-# idea.system.path=${user.home}/.WebStorm/system
-```

@@ -38,13 +38,17 @@ export default class ContentListComponent extends ContentFilterComponent {
         </ul>
       `;
 
+    /* Вызываем в случаях закрытия режима редактирования без сохранинения
+     изменений (возвращаем наш item к первозданному виду), а так же когда
+     сохряняем изменения после редактирования элемента (рендерим итем с уже
+     новым содержанием)*/
     } else if (anchor && value) {
       anchor.innerHTML = `
         <p class="content__main-results-list-item-text">${value}</p>
         <div class="content__main-results-list-item-buttons"></div>
       `;
 
-    } else {
+    } else { // Если активный фильтр "Done"
       if (this.anchorList.hasAttribute('done-filter')) {
         let filteredArray = store.props.filter(item => item.completed === true);
         this.anchorList.innerHTML = `
@@ -58,7 +62,7 @@ export default class ContentListComponent extends ContentFilterComponent {
             `).join('')}
           </ul>
         `;
-
+      // Если активный фильтр "In progress"
       } else if (this.anchorList.hasAttribute('in-progress-filter')) {
         let filteredArray = store.props.filter(item => item.completed === false);
         this.anchorList.innerHTML = `

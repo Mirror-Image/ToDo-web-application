@@ -28,12 +28,15 @@ export default class ContentButtonsComponent extends ContentListComponent{
           text: obj.text,
           creator: obj.creator,
         });
+
+        this.onInitList();
       });
     });
   }
 
   renderButtons(value) {
-    if (value) { // вызывается когда нужно отрисовать только один конкретный элемент
+    // вызывается когда нужно отрисовать кнопки только для одиного конкретного элемента
+    if (value) {
       value.lastElementChild.innerHTML = `
         <a class="content__main-results-list-item-buttons-done done-button"></a>
         <a class="content__main-results-list-item-buttons-delete delete-button"></a>

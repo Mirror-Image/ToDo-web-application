@@ -41,5 +41,6 @@ https://github.com/Mirror-Image/ToDo-web-application
 * AuthorizationStorageComponent
 * Store
 * Observer
+* Router
 * Utilities
 ----------------------------------------------------------------------------------
